@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <meta name="description" content="DevMasterZone — Latest articles on Angular, HTML, CSS, JavaScript and Web Development."/>
+  <meta name="keywords" content="Angular, React, JavaScript, CSS, HTML, Web Development, Frontend"/>
+  <meta name="author" content="DevMasterZone"/>
+  <meta property="og:title" content="DevMasterZone — Web Development Blog"/>
+  <meta property="og:type" content="website"/>
+  <title>DevMasterZone — Web Dev Blog</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="css/main.css"/>
+  <link rel="stylesheet" href="css/pages.css"/>
+</head>
+<body>
+
+<!-- Loader -->
+<div id="loader"><div class="ld-logo"><b>DevMaster</b>Zone</div><div class="ld-bar"><div class="ld-fill"></div></div></div>
+
+<!-- Progress -->
+<div id="prog"></div>
+
+<!-- Toast -->
+<div id="toast"></div>
+
+<!-- Back to top -->
+<button id="btt" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+
+<!-- ═══ NAVBAR ═══ -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#home" class="nav-logo"><span class="nl-gold">DevMaster</span>Zone</a>
+
+    <!-- Desktop Links -->
+    <nav class="nav-links" id="navLinks">
+      <a href="#home"       class="nl on">Home</a>
+      <a href="#blogs"      class="nl">Blogs</a>
+      <a href="#categories" class="nl">Categories</a>
+      <a href="#about"      class="nl">About</a>
+      <a href="#contact"    class="nl">Contact</a>
+      <a href="#login"      class="nl">Login</a>
+      <a href="#register"   class="nl">Register</a>
+      <a href="#write"      class="nl cta"><i class="fas fa-pen"></i> Write Blog</a>
+    </nav>
+
+    <!-- Desktop right -->
+    <div class="nav-right">
+      <button id="thBtn" class="tbtn" aria-label="Toggle theme"><i class="fas fa-sun" id="thIcon"></i></button>
+    </div>
+
+    <!-- Mobile right -->
+    <div class="mob-right">
+      <button id="thBtnM" class="tbtn"><i class="fas fa-sun" id="thIconMob"></i></button>
+      <button class="ham" id="ham"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- ═══ HOME PAGE ═══ -->
+<div id="pg-home" class="page">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-dots"></div>
+    <div class="wrap hero-grid">
+      <div>
+        <div class="hero-label"><i class="fas fa-bolt"></i> Web Development Blog</div>
+        <h1 class="hero-h">Welcome to<br><span class="gold">DevMasterZone</span></h1>
+        <p class="hero-p">Read latest articles on <strong>Angular, HTML, CSS, JavaScript</strong> and modern Web Development. Level up your skills with in-depth tutorials.</p>
+        <div class="hero-btns">
+          <a href="#blogs" class="btn btn-gold btn-lg"><i class="fas fa-book-open"></i> Read Blogs</a>
+          <a href="#categories" class="btn btn-ghost btn-lg"><i class="fas fa-th"></i> Explore Categories</a>
+        </div>
+        <div class="hero-stats">
+          <div><span class="hstat-num">50+</span><span class="hstat-lbl">Articles</span></div>
+          <div><span class="hstat-num">10K+</span><span class="hstat-lbl">Readers</span></div>
+          <div><span class="hstat-num">10</span><span class="hstat-lbl">Categories</span></div>
+        </div>
+      </div>
+      <div class="hero-vis">
+        <div class="hcard-wrap">
+          <div class="hcard">
+            <div class="hcard-img"><i class="fab fa-angular"></i></div>
+            <div class="hcard-body">
+              <div class="hcard-cat">Angular</div>
+              <div class="hcard-t">Angular Standalone Components — Complete Guide 2025</div>
+              <div class="hcard-m"><span><i class="fas fa-clock"></i> 8 min read</span><span><i class="fas fa-eye"></i> 2.3K views</span></div>
+            </div>
+          </div>
+          <div class="hfloat hf1"><i class="fas fa-fire"></i> Trending Now</div>
+          <div class="hfloat hf2"><i class="fas fa-bookmark"></i> 487 Saves</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories strip -->
+  <div style="background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:1.6rem 0">
+    <div class="wrap">
+      <div class="cstrip-wrap"><div class="cstrip" id="cat-strip"></div></div>
+    </div>
+  </div>
+
+  <!-- Featured posts -->
+  <section class="sec">
+    <div class="wrap">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;margin-bottom:1.8rem">
+        <div><div class="sec-tag">Editor's Pick</div><h2 class="sec-title">Featured <span class="gold">Articles</span></h2></div>
+      </div>
+      <div class="feat-grid" id="featured"></div>
+    </div>
+  </section>
+
+  <!-- Latest posts -->
+  <section class="sec sec-alt">
+    <div class="wrap">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;margin-bottom:1.8rem">
+        <div><div class="sec-tag">Fresh Content</div><h2 class="sec-title">Latest <span class="gold">Articles</span></h2></div>
+        <a href="#blogs" class="btn btn-out">View All <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="grid3" id="latest"></div>
+    </div>
+  </section>
+
+  <!-- Newsletter strip -->
+  <section style="padding:3.5rem 0;background:var(--card);border-top:1px solid var(--border)">
+    <div class="wrap center">
+      <div style="max-width:500px;margin:0 auto">
+        <div class="sec-tag">Stay Updated</div>
+        <h2 class="sec-title" style="margin-top:.4rem">Subscribe to our <span class="gold">Newsletter</span></h2>
+        <p style="color:var(--muted);margin-bottom:1.6rem">Get the latest articles in your inbox every week. No spam, ever.</p>
+        <div style="display:flex;gap:.5rem;max-width:400px;margin:0 auto;flex-wrap:wrap">
+          <input type="email" class="sinput" placeholder="your@email.com" style="flex:1;min-width:190px;border-radius:99px"/>
+          <button class="btn btn-gold" style="border-radius:99px" onclick="App.toast('Subscribed!','ok')"><i class="fas fa-envelope"></i> Subscribe</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="fg-grid">
+        <div>
+          <div class="f-logo"><span class="nl-gold">DevMaster</span>Zone</div>
+          <p class="f-desc">Your go-to resource for learning modern web development. We cover Angular, React, JavaScript, CSS, and more with practical tutorials and real-world projects.</p>
+          <div class="f-social">
+            <a href="#" class="fsoc"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="fsoc"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="fsoc"><i class="fab fa-github"></i></a>
+            <a href="#" class="fsoc"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="fsoc"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="f-col"><h4>Quick Links</h4>
+          <div class="flinks">
+            <a href="#home">Home</a><a href="#blogs">All Blogs</a>
+            <a href="#categories">Categories</a><a href="#about">About</a>
+            <a href="#contact">Contact</a><a href="#write">Write for Us</a>
+          </div>
+        </div>
+        <div class="f-col"><h4>Categories</h4>
+          <div class="flinks">
+            <a href="#cat/angular">Angular</a><a href="#cat/js">JavaScript</a>
+            <a href="#cat/react">React</a><a href="#cat/css">CSS</a>
+            <a href="#cat/node">Node.js</a><a href="#cat/interview">Interview Prep</a>
+          </div>
+        </div>
+        <div class="f-col"><h4>Newsletter</h4>
+          <p style="font-size:.8rem;color:var(--muted);margin-bottom:.7rem">Weekly tutorials right in your inbox.</p>
+          <input type="email" class="f-nli" placeholder="your@email.com"/>
+          <button class="btn btn-gold btn-block btn-sm" onclick="App.toast('Subscribed!','ok')"><i class="fas fa-envelope"></i> Subscribe</button>
+        </div>
+      </div>
+      <div class="f-bottom">
+        <p>© 2026 <strong>DevMasterZone</strong>. All Rights Reserved.</p>
+        <p>Built with <span style="color:#ff5757">❤</span> for developers · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
+      </div>
+    </div>
+  </footer>
+</div><!-- /pg-home -->
+
+<!-- ═══ BLOGS PAGE ═══ -->
+<div id="pg-blogs" class="page hide"></div>
+
+<!-- ═══ CATEGORIES PAGE ═══ -->
+<div id="pg-cats" class="page hide"></div>
+
+<!-- ═══ POST DETAIL PAGE ═══ -->
+<div id="pg-post" class="page hide"></div>
+
+<!-- ═══ ABOUT PAGE ═══ -->
+<div id="pg-about" class="page hide">
+  <div class="about-top">
+    <div class="wrap">
+      <div class="center" style="margin-bottom:1.5rem">
+        <div class="sec-tag">Our Story</div>
+        <h1 class="sec-title">About <span class="gold">DevMasterZone</span></h1>
+        <p class="sec-sub">Empowering developers with practical knowledge</p>
+      </div>
+      <div class="about-grid">
+        <div class="about-vis rv"><i class="fas fa-laptop-code"></i></div>
+        <div class="rv rvr">
+          <h2 style="font-family:var(--ff-head);font-size:1.45rem;font-weight:700;margin-bottom:.9rem">We Make Web Development <span class="gold">Simple & Fun</span></h2>
+          <p style="color:var(--muted);line-height:1.85;margin-bottom:.85rem">DevMasterZone is a web development blog dedicated to helping developers of all skill levels learn modern technologies. We publish practical tutorials, guides, and tips on Angular, React, JavaScript, CSS, HTML, and more.</p>
+          <p style="color:var(--muted);line-height:1.85;margin-bottom:1.4rem">Founded in 2023, our mission is simple: make complex web development concepts easy to understand through clear writing, practical examples, and real-world projects.</p>
+          <div class="adg">
+            <div class="ad"><div class="ad-lbl">Founded</div><div class="ad-val">2023</div></div>
+            <div class="ad"><div class="ad-lbl">Articles</div><div class="ad-val">50+</div></div>
+            <div class="ad"><div class="ad-lbl">Readers</div><div class="ad-val">10,000+</div></div>
+            <div class="ad"><div class="ad-lbl">Categories</div><div class="ad-val">10</div></div>
+          </div>
+          <div style="display:flex;gap:.7rem;flex-wrap:wrap;margin-top:1.1rem">
+            <a href="#contact" class="btn btn-gold"><i class="fas fa-envelope"></i> Contact Us</a>
+            <a href="#write" class="btn btn-out"><i class="fas fa-pen"></i> Write for Us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section class="sec">
+    <div class="wrap">
+      <div class="center" style="margin-bottom:2rem">
+        <div class="sec-tag">Our Values</div>
+        <h2 class="sec-title">What Drives <span class="gold">Us</span></h2>
+      </div>
+      <div class="mc">
+        <div class="mcard rv"><div class="mcard-icon"><i class="fas fa-lightbulb"></i></div><h4>Clarity First</h4><p>We explain complex concepts in simple, digestible language that anyone can understand and apply.</p></div>
+        <div class="mcard rv"><div class="mcard-icon"><i class="fas fa-code"></i></div><h4>Practical Focus</h4><p>Every article comes with real code examples and projects you can build yourself, not just theory.</p></div>
+        <div class="mcard rv"><div class="mcard-icon"><i class="fas fa-users"></i></div><h4>Community Driven</h4><p>We learn together. Your questions and feedback shape what we write about next.</p></div>
+      </div>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="wrap">
+      <div class="f-bottom"><p>© 2026 <strong>DevMasterZone</strong>. All Rights Reserved.</p><p><a href="#home">Home</a> · <a href="#blogs">Blogs</a> · <a href="#contact">Contact</a></p></div>
+    </div>
+  </footer>
+</div>
+
+<!-- ═══ CONTACT PAGE ═══ -->
+<div id="pg-contact" class="page hide">
+  <div class="wrap" style="padding-top:calc(var(--nav)+3rem);padding-bottom:4rem">
+    <div class="center" style="margin-bottom:2.5rem">
+      <div class="sec-tag">Get in Touch</div>
+      <h1 class="sec-title">Contact <span class="gold">Us</span></h1>
+      <p class="sec-sub">Questions, suggestions, or want to write for us?</p>
+    </div>
+    <div class="cng">
+      <div class="rv">
+        <h3 style="font-family:var(--ff-head);font-size:1.2rem;font-weight:700;margin-bottom:1.3rem">Let's Connect</h3>
+        <div class="cc"><div class="cc-ico"><i class="fas fa-envelope"></i></div><div><div class="cc-lbl">Email</div><div class="cc-val">hello@devmasterzone.com</div></div></div>
+        <div class="cc"><div class="cc-ico"><i class="fab fa-twitter"></i></div><div><div class="cc-lbl">Twitter</div><div class="cc-val">@DevMasterZone</div></div></div>
+        <div class="cc"><div class="cc-ico"><i class="fab fa-youtube"></i></div><div><div class="cc-lbl">YouTube</div><div class="cc-val">DevMasterZone</div></div></div>
+        <div class="cc"><div class="cc-ico"><i class="fab fa-linkedin-in"></i></div><div><div class="cc-lbl">LinkedIn</div><div class="cc-val">/devmasterzone</div></div></div>
+        <div style="margin-top:1.3rem;padding:1.1rem;background:rgba(240,165,0,.07);border:1px solid rgba(240,165,0,.22);border-radius:var(--r2)">
+          <h4 style="font-weight:700;margin-bottom:.35rem"><i class="fas fa-pen" style="color:var(--gold);margin-right:7px"></i>Write for Us</h4>
+          <p style="font-size:.85rem;color:var(--muted)">Love writing and web dev? Share your knowledge with our community. We'd love to hear from you!</p>
+        </div>
+      </div>
+      <div class="rv rvr">
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--r3);padding:1.9rem">
+          <h3 style="font-family:var(--ff-head);font-size:1.05rem;font-weight:700;margin-bottom:1.35rem">Send a Message</h3>
+          <form id="contactForm">
+            <div class="frow">
+              <div class="fg"><label>Full Name *</label><input class="fc" id="cfn" placeholder="John Doe"/><span class="ferr" id="cfne"></span></div>
+              <div class="fg"><label>Email *</label><input type="email" class="fc" id="cfe" placeholder="john@example.com"/><span class="ferr" id="cfee"></span></div>
+            </div>
+            <div class="fg"><label>Subject *</label><input class="fc" id="cfs" placeholder="Write for Us / Feedback / Question"/><span class="ferr" id="cfse"></span></div>
+            <div class="fg"><label>Message *</label><textarea class="fc" id="cfm" rows="5" placeholder="Tell us how we can help…"></textarea><span class="ferr" id="cfme"></span></div>
+            <button type="submit" class="btn btn-gold btn-block btn-lg" id="cBtn"><i class="fas fa-paper-plane"></i> Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="footer"><div class="wrap"><div class="f-bottom"><p>© 2026 <strong>DevMasterZone</strong>. All Rights Reserved.</p></div></div></footer>
+</div>
+
+<!-- ═══ AUTH PAGE ═══ -->
+<div id="pg-auth" class="page hide">
+  <div id="auth-inner"></div>
+</div>
+
+<!-- ═══ WRITE PAGE ═══ -->
+<div id="pg-write" class="page hide">
+  <div class="wrap write-wrap">
+    <div class="breadcrumb"><a href="#home">Home</a><i class="fas fa-chevron-right"></i><span>Write Blog</span></div>
+    <div style="margin-bottom:1.8rem">
+      <div class="sec-tag">Create Content</div>
+      <h1 class="sec-title">Write a <span class="gold">Blog Post</span></h1>
+    </div>
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--r3);padding:1.9rem">
+      <div class="fg"><label>Blog Title *</label><input class="fc" placeholder="Enter an engaging title for your article…" style="font-size:1.05rem"/></div>
+      <div class="frow">
+        <div class="fg"><label>Category *</label>
+          <select class="fc">
+            <option value="">Select Category</option>
+            <option>Angular</option><option>HTML</option><option>CSS</option>
+            <option>JavaScript</option><option>TypeScript</option><option>React</option>
+            <option>Node.js</option><option>Projects</option><option>Interview Questions</option><option>Career Tips</option>
+          </select>
+        </div>
+        <div class="fg"><label>Tags (comma separated)</label><input class="fc" placeholder="angular, tutorial, components"/></div>
+      </div>
+      <div class="fg"><label>Short Description *</label><textarea class="fc" rows="2" placeholder="A brief summary of what this article covers…"></textarea></div>
+      <div class="fg">
+        <label>Content *</label>
+        <div class="toolbar">
+          <button class="tb" title="Bold"><i class="fas fa-bold"></i></button>
+          <button class="tb" title="Italic"><i class="fas fa-italic"></i></button>
+          <button class="tb" title="Heading 2"><i class="fas fa-heading"></i></button>
+          <button class="tb" title="Link"><i class="fas fa-link"></i></button>
+          <button class="tb" title="Code"><i class="fas fa-code"></i></button>
+          <button class="tb" title="Quote"><i class="fas fa-quote-right"></i></button>
+          <button class="tb" title="List"><i class="fas fa-list-ul"></i></button>
+          <button class="tb" title="Ordered List"><i class="fas fa-list-ol"></i></button>
+          <button class="tb" title="Image"><i class="fas fa-image"></i></button>
+          <button class="tb" title="Table"><i class="fas fa-table"></i></button>
+        </div>
+        <textarea class="editor" placeholder="Start writing your article here…&#10;&#10;## Introduction&#10;&#10;Your content here…"></textarea>
+      </div>
+      <div style="display:flex;gap:.7rem;justify-content:flex-end;flex-wrap:wrap">
+        <button class="btn btn-ghost"><i class="fas fa-save"></i> Save Draft</button>
+        <button class="btn btn-out"><i class="fas fa-eye"></i> Preview</button>
+        <button class="btn btn-gold btn-lg" id="publishBtn"><i class="fas fa-paper-plane"></i> Publish Blog</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ 404 PAGE ═══ -->
+<div id="pg-404" class="page hide">
+  <div style="min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:var(--nav) 1.5rem 3rem">
+    <div>
+      <div style="font-family:var(--ff-head);font-size:clamp(6rem,18vw,10rem);font-weight:700;color:var(--gold);opacity:.12;line-height:1">404</div>
+      <h2 style="font-family:var(--ff-head);font-size:1.7rem;font-weight:700;margin-bottom:.65rem">Page Not Found</h2>
+      <p style="color:var(--muted);margin-bottom:1.8rem">The page you're looking for doesn't exist or has been moved.</p>
+      <div style="display:flex;gap:.7rem;justify-content:center;flex-wrap:wrap">
+        <a href="#home" class="btn btn-gold"><i class="fas fa-home"></i> Go Home</a>
+        <a href="#blogs" class="btn btn-out"><i class="fas fa-book-open"></i> Browse Blogs</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
