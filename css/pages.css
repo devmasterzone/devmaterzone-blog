@@ -5,7 +5,7 @@
   padding-top: var(--nav);
 }
 /* ── HOME HERO ── */
-.hero{min-height:100vh;display:flex;align-items:center;padding-top:var(--nav);position:relative;overflow:hidden}
+.hero{padding:16px;min-height:100vh;display:flex;align-items:center;padding-top:var(--nav);position:relative;overflow:hidden}
 .hero-bg{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 65% 55% at 18% 50%,rgba(240,165,0,.055),transparent 68%),radial-gradient(ellipse 50% 65% at 82% 28%,rgba(74,158,255,.04),transparent 68%)}
 .hero-dots{position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(circle,rgba(255,255,255,.04) 1px,transparent 1px);background-size:30px 30px;mask-image:radial-gradient(ellipse 85% 85% at 50% 50%,black,transparent)}
 .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;padding:2.5rem 0}
